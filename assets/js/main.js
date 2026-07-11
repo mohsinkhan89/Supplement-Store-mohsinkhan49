@@ -1,5 +1,9 @@
 const menuBtn=document.querySelector('.menu-btn');
 const nav=document.querySelector('.nav');
+const header=document.querySelector('.site-header');
+function updateHeader(){header.classList.toggle('scrolled',scrollY>24)}
+addEventListener('scroll',updateHeader,{passive:true});
+updateHeader();
 menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open)});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
 
